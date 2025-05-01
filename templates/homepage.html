@@ -1,0 +1,19 @@
+{%extends "index.html"%}
+
+{% block content %}
+    <h1>Welcome to Papernest Bookstore!</h1>
+    <p>Explore our collections of books and find your next read.</p>
+
+    <form action="/redirect" method="POST">
+        <label for="book-category">Choose a category:</label>
+        <select id="book-category" name="category">
+            <option value="children">Children's</option>
+            <option value="fiction">Fiction</option>
+            <option value="non-fiction">Fiction</option>
+            <option value="mystery">Mystery</option>
+            <option value="history">History</option>
+        </select>
+        <button type="submit">Select Category</button>
+    </form>
+
+{% endblock content %}

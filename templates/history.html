@@ -1,0 +1,16 @@
+{%extends "index.html"%}
+{% block content %}
+    <h1>History Books</h1>
+    <p>Explore our collection of history books.</p>
+
+    <ul>
+        {% for book in books %}
+            <li>{{ book.title }} by {{ book.author }}</li>
+        {% endfor %}
+    </ul>
+
+    <form action="/homepage">
+        <button type="submit">Back to Homepage</button>
+    </form>
+
+{% endblock content %}
