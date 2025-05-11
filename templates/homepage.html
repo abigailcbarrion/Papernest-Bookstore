@@ -5,15 +5,20 @@
     <p>Explore our collections of books and find your next read.</p>
 
     <form action="/redirect" method="POST">
+        <div style="margin-bottom: 20px;">
+            <label for="user-name">Enter your name</label>
+            <input type="text" id="user-name" name="user_name" placeholder="Your name" required>
+        </div>
+
         <label for="book-category">Choose a category:</label>
         <select id="book-category" name="category">
             <option value="children">Children's</option>
             <option value="fiction">Fiction</option>
-            <option value="non-fiction">Fiction</option>
+            <option value="non-fiction">Non-Fiction</option>
             <option value="mystery">Mystery</option>
             <option value="history">History</option>
         </select>
+
         <button type="submit">Select Category</button>
     </form>
-
 {% endblock content %}

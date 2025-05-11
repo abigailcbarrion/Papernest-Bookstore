@@ -1,16 +1,44 @@
 {%extends "index.html"%}
 {% block content %}
-    <h1>History Books</h1>
-    <p>Explore our collection of history books.</p>
+    <h1>history's Books</h1>
+    <p>Explore our collection of history's books.</p>
 
-    <ul>
-        {% for book in books %}
-            <li>{{ book.title }} by {{ book.author }}</li>
-        {% endfor %}
-    </ul>
+    <form action="/save_order" method="POST">
+        <input type="hidden" name="category" value="history">
+        <input type="hidden" name="user_name" value="{{ user_name }}">
+        
+        <p>Shopping for: <strong>{{ user_name }}</strong></p>
+        
+        <table>
+            <tr>
+                <th>Book</th>
+                <th>Author</th>
+                <th>Quantity</th>
+            </tr>
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>
+                    <select name="book_{{ loop.index0 }}">
+                        <option value="0">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                    <input type="hidden" name="title_{{ loop.index0 }}" value="{{ book.title }}">
+                    <input type="hidden" name="author_{{ loop.index0 }}" value="{{ book.author }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
 
-    <form action="/homepage">
-        <button type="submit">Back to Homepage</button>
+        <button type="submit">Submit</button>
+        
+        <div style="margin-top: 20px;">
+            <a href="/homepage">Back to Homepage</a>
+        </div>
     </form>
-
 {% endblock content %}
